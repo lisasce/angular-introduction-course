@@ -2,6 +2,9 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
 
+This is a Demo project for the Angular Introduction Course. It serves as a starting point for learning Angular concepts and building applications.
+https://www.angular.courses/courses/angular-20
+
 ## Development server
 
 To start a local development server, run:
