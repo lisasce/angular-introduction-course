@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, signal, WritableSignal} from '@angular/core';
+import {Task} from "../models/task.model";
+import { v4 as uuid } from "uuid";
 
 @Component({
   selector: 'app-task-list',
@@ -7,5 +9,18 @@ import { Component } from '@angular/core';
   styleUrl: './task-list.css'
 })
 export class TaskList {
-
+  tasks: WritableSignal<Task[]> = signal([
+    {
+      id: uuid(),
+      title: "Task 1",
+      description: "Description of task 1",
+      createdAt: new Date(),
+    },
+    {
+      id: uuid(),
+      title: "Task 2",
+      description: "Description of task 2",
+      createdAt: new Date(),
+    },
+  ]);
 }
