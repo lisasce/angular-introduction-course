@@ -1,1 +1,18 @@
-<p>task-list works!</p>
+<p>task-list works!</p><table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Date</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (task of tasks(); track task.id) {
+      <tr>
+        <td>Follow the course</td>
+        <td>05/24/2024</td>
+        <td></td>
+      </tr>
+    }
+  </tbody>
+</table>
