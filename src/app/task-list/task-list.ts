@@ -1,10 +1,13 @@
 import {Component, signal, WritableSignal} from '@angular/core';
 import {Task} from "../models/task.model";
 import { v4 as uuid } from "uuid";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-task-list',
-  imports: [],
+  imports: [
+    DatePipe
+  ],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css'
 })

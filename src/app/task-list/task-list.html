@@ -9,8 +9,8 @@
   <tbody>
     @for (task of tasks(); track task.id) {
       <tr>
-        <td>Follow the course</td>
-        <td>05/24/2024</td>
+        <td>{{ task.title }}</td>
+        <td>{{ task.createdAt | date}}</td>
         <td></td>
       </tr>
     }
