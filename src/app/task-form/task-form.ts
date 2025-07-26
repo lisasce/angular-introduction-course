@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 
+import {FormControl, FormGroup, ReactiveFormsModule,} from '@angular/forms';
+
 @Component({
   selector: 'app-task-form',
-  imports: [],
+  imports: [FormControl, ReactiveFormsModule],
   templateUrl: './task-form.html',
-  styleUrl: './task-form.css'
+  styleUrl: './task-form.css',
 })
 export class TaskForm {
 
+  form = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl('')
+  });
 }
