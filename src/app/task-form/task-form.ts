@@ -4,7 +4,7 @@ import {FormControl, FormGroup, ReactiveFormsModule,} from '@angular/forms';
 
 @Component({
   selector: 'app-task-form',
-  imports: [FormControl, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './task-form.html',
   styleUrl: './task-form.css',
 })
