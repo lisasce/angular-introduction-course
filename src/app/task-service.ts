@@ -20,4 +20,15 @@ export class TaskService {
       createdAt: new Date(),
     },
   ]);
+
+  addTask(task: Partial<Task>): void {
+    this.tasks.update(tasks => [
+      ...tasks,
+      {
+        ...task,
+        id: uuid(),
+        createdAt: new Date(),
+      }
+    ]);
+  }
 }
