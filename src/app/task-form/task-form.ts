@@ -1,6 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {TaskService} from '../task-service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -13,6 +14,7 @@ import {TaskService} from '../task-service';
 })
 export class TaskForm {
    private taskService = inject(TaskService);
+  private router = inject(Router);
 
   form = new FormGroup({
     title: new FormControl(''),
@@ -21,5 +23,6 @@ export class TaskForm {
 
   submit() {
     this.taskService.addTask(this.form.value);
+    this.router.navigate(["/"]);
   }
 }
