@@ -20,7 +20,6 @@ export class TaskForm {
   });
 
   submit() {
-    console.log("Task created", this.form.value);
     this.taskService.addTask(this.form.value);
   }
 }
