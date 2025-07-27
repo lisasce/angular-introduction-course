@@ -11,7 +11,7 @@ import {FormControl, FormGroup, ReactiveFormsModule,} from '@angular/forms';
 export class TaskForm {
 
   form = new FormGroup({
-    name: new FormControl(''),
+    title: new FormControl(''),
     description: new FormControl('')
   });
 }
