@@ -31,4 +31,15 @@ export class TaskService {
       }
     ]);
   }
+
+  getTask(id: string): Task {
+    return this.tasks().find((task) => task.id === id)!;
+  }
+
+  updateTask(task: Task) {
+    this.tasks.update((tasks) => {
+      return tasks.map((existingTask) => existingTask.id === task.id ? task : existingTask);
+    });
+  }
+
 }
