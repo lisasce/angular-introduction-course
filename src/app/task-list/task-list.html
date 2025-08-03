@@ -12,9 +12,14 @@
         <td>{{ task.title }}</td>
         <td>{{ task.createdAt | date}}</td>
         <td>
-          <a class="btn btn-secondary" [routerLink]="['/update', task.id]">Update</a>
+          <a class="btn btn-secondary m-1" [routerLink]="['/update', task.id]">Update</a>
+          <button class="btn btn-danger m-1" type="button" (click)="deleteTask(task.id)">Delete</button>
         </td>
       </tr>
     }
   </tbody>
 </table>
+
+@if (!tasks().length) {
+  <p class="my-5 text-center">No tasks</p>
+}

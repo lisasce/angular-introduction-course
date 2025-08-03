@@ -15,4 +15,9 @@ import {RouterLink} from '@angular/router';
 export class TaskList {
   private taskService = inject(TaskService);
   tasks = this.taskService.tasks;
+
+  deleteTask(id: string): void {
+    this.taskService.deleteTask(id);
+  }
+
 }
