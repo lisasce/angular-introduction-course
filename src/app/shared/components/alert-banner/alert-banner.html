@@ -1,0 +1,9 @@
+<div role="alert" class='alert alert-vertical alert-soft m-5'
+     [class.alert-info]="type() ? type() === 'info' : false"
+     [class.alert-error]="type() ? type() === 'error' : false">
+  <span>{{ message() }}</span>
+  <button class="btn"
+          [class.btn-info]="type() ? type() === 'info' : false"
+          [class.btn-error]="type() ? type() === 'error' : false"
+          (click)="onSubmit.emit()">Proceed</button>
+</div>
