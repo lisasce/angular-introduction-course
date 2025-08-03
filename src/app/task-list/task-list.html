@@ -7,7 +7,7 @@
   </tr>
   </thead>
   <tbody>
-    @for (task of tasks(); track task.id) {
+    @for (task of tasks$ | async; track task.id ) {
       <tr>
         <td>{{ task.title }}</td>
         <td>{{ task.createdAt | date}}</td>
@@ -20,7 +20,7 @@
   </tbody>
 </table>
 
-@if (!tasks().length) {
+@if ((tasks$ | async)?.length === 0) {
   <p class="my-5 text-center">No tasks</p>
 }
 

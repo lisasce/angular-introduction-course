@@ -31,7 +31,9 @@ export class TaskForm implements OnInit {
     this.id = this.route.snapshot.paramMap.get("id");
 
     if (this.id ) {
-      this.form.patchValue(this.taskService.getTask(this.id ));
+      this.taskService.getTask(this.id).subscribe(task => {
+        this.form.patchValue(task);
+      });
     }
   }
 
@@ -42,16 +44,13 @@ export class TaskForm implements OnInit {
       console.log('Title Errors: ', this.form.controls.title.errors);
       console.log('Description Errors: ', this.form.controls.description.errors);
     }
-    if (this.id ) {
-      const existingTask = this.taskService.getTask(this.id );
-      this.taskService.updateTask({
-        ...existingTask,
-        ...this.form.value,
-      });
-    } else {
-      this.taskService.addTask(this.form.value);
-    }
-    this.router.navigate(["/"]);
+    const taskObservable = this.id
+        ? this.taskService.updateTask(this.form.value, this.id)
+        : this.taskService.addTask(this.form.value);
+
+    taskObservable.subscribe(() => {
+      this.router.navigate(["/"]);
+    });
   }
 
   preFillForm() {

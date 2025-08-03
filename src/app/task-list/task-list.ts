@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {DatePipe} from "@angular/common";
+import {AsyncPipe, DatePipe} from "@angular/common";
 import {TaskService} from '../task-service';
 import {RouterLink} from '@angular/router';
 import {AlertBanner} from '../shared/components/alert-banner/alert-banner';
@@ -9,21 +9,25 @@ import {AlertBanner} from '../shared/components/alert-banner/alert-banner';
   imports: [
     DatePipe,
     RouterLink,
-    AlertBanner
+    AlertBanner,
+    AsyncPipe
   ],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css'
 })
 export class TaskList {
   private taskService = inject(TaskService);
-  tasks = this.taskService.tasks;
+  tasks$ = this.taskService.getTasks();
 
   deleteTask(id: string): void {
-    this.taskService.deleteTask(id);
+    this.taskService.deleteTask(id).subscribe(() => {
+      document.location.reload();
+      // this is not best practice, but for simplicity we reload the page
+    });
   }
 
   deleteAllTasks() {
-    this.taskService.deleteAllTasks();
+    this.taskService.deleteAllTasks().subscribe(() => document.location.reload());
   }
 
 }
