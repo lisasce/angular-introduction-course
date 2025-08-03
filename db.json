@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "First task",
+      "description": "This is the first task in your to-do list.",
+      "createdAt": "2021-09-01T12:00:00"
+    },
+    {
+      "id": 2,
+      "title": "Second task",
+      "description": "This is the second task in your to-do list.",
+      "createdAt": "2021-09-01T12:00:00"
+    }
+  ]
+}
