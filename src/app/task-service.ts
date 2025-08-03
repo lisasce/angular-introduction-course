@@ -1,11 +1,15 @@
-import {Injectable, signal, WritableSignal} from '@angular/core';
+import {inject, Injectable, signal, WritableSignal} from '@angular/core';
 import {Task} from './models/task.model';
 import { v4 as uuid } from "uuid";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
+  private http = inject(HttpClient);
+
   tasks: WritableSignal<Task[]> = signal([
     {
       id: uuid(),
@@ -20,6 +24,10 @@ export class TaskService {
       createdAt: new Date(),
     },
   ]);
+
+  getTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>('http://localhost:3000/tasks');
+  }
 
   addTask(task: Partial<Task>): void {
     this.tasks.update(tasks => [
