@@ -23,7 +23,7 @@ export class TaskList {
   }
 
   deleteAllTasks() {
-    // TODO: delete all tasks
+    this.taskService.deleteAllTasks();
   }
 
 }

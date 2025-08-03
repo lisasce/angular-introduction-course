@@ -48,4 +48,8 @@ export class TaskService {
     });
   }
 
+  deleteAllTasks() {
+    this.tasks.set([]);
+  }
+
 }

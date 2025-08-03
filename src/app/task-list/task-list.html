@@ -23,4 +23,5 @@
 @if (!tasks().length) {
   <p class="my-5 text-center">No tasks</p>
 }
-<app-alert-banner message="Delete all tasks" type="error" (onSubmit)="deleteAllTasks()"/>
+
+<app-alert-banner message="Do you really want to delete all tasks?" type="error" (onSubmit)="deleteAllTasks()"/>

@@ -55,7 +55,10 @@ export class TaskForm implements OnInit {
   }
 
   preFillForm() {
-    // TODO: pre fill the form with basic information
+    this.form.setValue({
+      title: 'Generated Task',
+      description: 'Generated Description',
+    });
   }
 
 }
